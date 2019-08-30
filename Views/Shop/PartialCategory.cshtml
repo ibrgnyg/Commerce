@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Commerce.Areas.Admin.Models.kategori>
+<ul class="sidebar-menu">
+	@foreach (var item in Model)
+	{
+		<li>
+			<a href="@Url.Action("/","Shop",new {categoryId=@item.kategoriId })">
+				<i class="fa fa-angle-double-right"></i>
+				@item.kategoriName
+				<span>@item.Uruns.Count</span>
+			</a>
+		</li>
+	}
+
+</ul>

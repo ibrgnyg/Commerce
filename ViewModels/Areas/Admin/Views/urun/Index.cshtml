@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Commerce.Areas.Admin.Models.urun>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+		<tr>
+			
+		
+			<th>
+				@Html.DisplayNameFor(model => model.Resimyolu)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.urunName)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.urunAçıklama)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Kategori.kategoriName)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Price)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.eklemetarihi)
+			</th>
+			<th></th>
+		</tr>
+    </thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			if (item != null)
+			{
+
+				<tr>
+
+					<td>
+						<img src="~/images/@item.Resimyolu" height="100"/>
+					</td>
+					
+					<td>
+						@Html.DisplayFor(modelItem => item.urunName)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Kategori.kategoriName)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.urunAçıklama)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Price)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem=> item.eklemetarihi)
+					</td>
+					<td>
+						<a asp-action="Edit" asp-route-id="@item.urunId">Edit</a> |
+						<a asp-action="Details" asp-route-id="@item.urunId">Details</a> |
+						<a asp-action="Delete" asp-route-id="@item.urunId">Delete</a>
+					</td>
+				</tr>
+			}
+
+		}
+	</tbody>
+</table>

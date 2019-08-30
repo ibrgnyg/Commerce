@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Commerce.Areas.Admin.Models.urun>
+
+<h2 class="section-title">En Çok satanlar</h2>
+<div class="container">
+	<div class="row">
+		<div class="team-list indicator-style">
+			@foreach (var item in Model)
+			{
+				<div class="col-md-3">
+					<div class="single-team-member">
+						<a href="@Url.Action("productDetail","Shop", new { productId = item.urunId })">
+							@*<img src="@Url.Action("Thumbnail", "Shop", new { width = 130, height = 170, Id =item.urunNo,_resimNo=item.resim.FirstOrDefault().resimNo })" alt="">*@
+						</a>
+						<div class="member-info">
+							<a href="@Url.Action("productDetail","Shop", new { productId = item.urunId })">@item.urunName</a>
+							<p>₺ @item.Price</p>
+						</div>
+					</div>
+				</div>
+			}
+
+		</div>
+	</div>
+</div>
